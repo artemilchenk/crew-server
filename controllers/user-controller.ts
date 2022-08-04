@@ -89,6 +89,8 @@ async function getUser(req, res) {
 
 async function getUsers(req, res) {
   try {
+
+    console.log(process.env.SECRET_KEY);
     const users = await User.find();
     res.status(200).send({ users });
 
