@@ -64,7 +64,7 @@ async function login(req, res) {
     const token = jwt.sign({
       id: user._id,
       name: user.name
-    }, process.env.SECRET_KEY, { expiresIn: "24h" });
+    }, 'crew_cooperating', { expiresIn: "24h" });
 
     res.status(200).send({ user, token });
 
