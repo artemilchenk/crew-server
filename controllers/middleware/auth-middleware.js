@@ -5,7 +5,7 @@ function checkUser(req, res, next) {
         const token = authHeader && authHeader.split(' ')[1]
         if (token == null) return res.status(400).send({message: "U are not authorized!"})
 
-        jwt.verify(token, process.env.SECRET_KEY, (err, user) => {
+        jwt.verify(token, 'crew_cooperating', (err, user) => {
             if (err) return res.status(400).send({message: "Token is not valid"})
             req.user = user
             next()
@@ -13,7 +13,6 @@ function checkUser(req, res, next) {
     } catch (err) {
         res.status(400).send({message: "U are not authorized!"})
     }
-
 
 }
 
